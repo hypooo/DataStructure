@@ -52,7 +52,6 @@ public class SingleLinkedList<T> extends Object{
 
                 sb.append(charWord);
                 sb.append(" ");
-
             }
         }
         return sb.toString();

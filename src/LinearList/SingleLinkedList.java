@@ -41,15 +41,10 @@ public class SingleLinkedList<T> extends Object{
         StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < str.length(); i ++) {
-
             char charWord = str.charAt(i);
-
             int firstPosition = str.indexOf(charWord);
-
             int lastPosition = str.lastIndexOf(charWord);
-
             if (firstPosition  == lastPosition || firstPosition == i) {
-
                 sb.append(charWord);
                 sb.append(" ");
             }

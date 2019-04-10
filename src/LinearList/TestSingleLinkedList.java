@@ -8,7 +8,7 @@ package LinearList;
 public class TestSingleLinkedList {
     public static void main(String[] args) {
         Integer[] values = {1,2,3,4,5};
-        Integer[] values2 = {4,5,6,7,8};
+        Integer[] values2 = {1,2,3,4,5};
         SingleLinkedList<Integer> list = new SingleLinkedList<Integer>(values);
         SingleLinkedList<Integer> list2 = new SingleLinkedList<Integer>(values2);
 

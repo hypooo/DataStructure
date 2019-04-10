@@ -141,4 +141,19 @@ public class SingleLinkedList<T> extends Object{
         }
         return sb.toString();
     }
+    /*比较两个单链表是否相等*/
+    public boolean isEquals(SingleLinkedList<T> list){
+        Node<T> p = this.head.next;
+        Node<T> q = list.head.next;
+
+        while (p != null && q != null){
+            if (p.data == q.data){
+                p = p.next;
+                q = q.next;
+            }
+            return true;
+        }
+
+        return false;
+    }
 }

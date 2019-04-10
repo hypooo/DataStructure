@@ -27,8 +27,10 @@ public class TestSingleLinkedList {
 
 //        list.searchNode(3);
 
-        System.out.println(list.getDifference(list2));
-        System.out.println(list.getTheSame(list2));
+//        System.out.println(list.getDifference(list2));
+//        System.out.println(list.getTheSame(list2));
+
+        System.out.println(list.isEquals(list2));
 
     }
 }

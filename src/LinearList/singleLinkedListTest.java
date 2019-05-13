@@ -5,12 +5,12 @@ package LinearList;
  * @date:2019/4/9 17:10
  * @description:
  */
-public class TestSingleLinkedList {
+public class singleLinkedListTest {
     public static void main(String[] args) {
         Integer[] values = {1,2,3,4,5};
         Integer[] values2 = {1,2,3,4,5};
-        SingleLinkedList<Integer> list = new SingleLinkedList<Integer>(values);
-        SingleLinkedList<Integer> list2 = new SingleLinkedList<Integer>(values2);
+        singleLinkedList<Integer> list = new singleLinkedList<Integer>(values);
+        singleLinkedList<Integer> list2 = new singleLinkedList<Integer>(values2);
 
 //        System.out.println(list.toString());
 //        System.out.println("单链表的长度为："+list.getSize());

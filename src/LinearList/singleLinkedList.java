@@ -5,19 +5,19 @@ package LinearList;
  * @date:2019/4/9 16:58
  * @description:
  */
-public class SingleLinkedList<T> extends Object {
-    public Node<T> head;
+public class singleLinkedList<T> {
+    public node<T> head;
 
-    public SingleLinkedList() {
-        this.head = new Node<T>();
+    public singleLinkedList() {
+        this.head = new node<T>();
     }
 
-    public SingleLinkedList(T[] values) {
+    public singleLinkedList(T[] values) {
         this();
-        Node<T> rear = this.head;
+        node<T> rear = this.head;
 
         for (int i = 0; i < values.length; i++) {
-            rear.next = new Node<T>(values[i], null);
+            rear.next = new node<T>(values[i], null);
             rear = rear.next;
         }
     }
@@ -26,7 +26,7 @@ public class SingleLinkedList<T> extends Object {
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("单链表中元素为：[");
-        for (Node<T> p = head.next; p != null; p = p.next) {
+        for (node<T> p = head.next; p != null; p = p.next) {
             sb.append(p.toString());
             if (p.next != null) {
                 sb.append(',');
@@ -56,7 +56,7 @@ public class SingleLinkedList<T> extends Object {
     /*返回单链表的长度*/
     public int getSize() {
         int size = 0;
-        for (Node<T> p = head.next; p != null; p = p.next) {
+        for (node<T> p = head.next; p != null; p = p.next) {
             size++;
         }
         return size;
@@ -69,16 +69,16 @@ public class SingleLinkedList<T> extends Object {
 
     /*增加结点*/
     public void addNode(int i, T data) {
-        Node<T> p = head;
+        node<T> p = head;
         for (int j = 0; p.next != null && j < i - 1; j++) {
             p = p.next;
         }
-        p.next = new Node<T>(data, p.next);
+        p.next = new node<T>(data, p.next);
     }
 
     /*删除结点*/
     public void deleteNode(int i) {
-        Node<T> p = head;
+        node<T> p = head;
         for (int j = 0; p.next != null && j < i - 1; j++) {
             p = p.next;
         }
@@ -93,7 +93,7 @@ public class SingleLinkedList<T> extends Object {
 
     /*查询结点*/
     public void searchNode(int i) {
-        Node<T> p = this.head;
+        node<T> p = this.head;
         for (int j = 0; p.next != null && j < i - 1; j++) {
             p = p.next;
         }
@@ -101,14 +101,14 @@ public class SingleLinkedList<T> extends Object {
     }
 
     /*返回单链表this除去与list中相同节点后的链表*/
-    public String difference(SingleLinkedList<T> list) {
+    public String difference(singleLinkedList<T> list) {
         StringBuffer sb = new StringBuffer();
 
-        Node<T> p = this.head.next;
+        node<T> p = this.head.next;
 
         while (p != null) {
             int i = 0;
-            Node<T> q = list.head.next;
+            node<T> q = list.head.next;
             while (q != null) {
                 if (p.data != q.data) {
                     i++;
@@ -125,7 +125,7 @@ public class SingleLinkedList<T> extends Object {
     }
 
     /*返回两个单链表所有不同的元素*/
-    public String getDifference(SingleLinkedList<T> list) {
+    public String getDifference(singleLinkedList<T> list) {
         StringBuffer sb = new StringBuffer("所有不同的元素为：");
         sb.append(this.difference(list));
         sb.append(list.difference(this));
@@ -133,13 +133,13 @@ public class SingleLinkedList<T> extends Object {
     }
 
     /*返回两个单链表相同的元素*/
-    public String getTheSame(SingleLinkedList<T> list) {
+    public String getTheSame(singleLinkedList<T> list) {
         StringBuffer sb = new StringBuffer("相同部分为：");
 
-        Node<T> p = this.head.next;
+        node<T> p = this.head.next;
 
         while (p != null) {
-            Node<T> q = list.head.next;
+            node<T> q = list.head.next;
             while (q != null) {
                 if (p.data == q.data) {
                     sb.append(p.toString());
@@ -153,9 +153,9 @@ public class SingleLinkedList<T> extends Object {
     }
 
     /*比较两个单链表是否相等*/
-    public boolean isEquals(SingleLinkedList<T> list) {
-        Node<T> p = this.head.next;
-        Node<T> q = list.head.next;
+    public boolean isEquals(singleLinkedList<T> list) {
+        node<T> p = this.head.next;
+        node<T> q = list.head.next;
 
         while (p != null && q != null && p.data == q.data) {
             p = p.next;

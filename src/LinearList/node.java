@@ -5,16 +5,16 @@ package LinearList;
  * @date:2019/4/9 16:49
  * @description:
  */
-public class Node<T> {
+public class node<T> {
     public T data;
-    public Node<T> next;
+    public node<T> next;
 
-    public Node(){
+    public node(){
         this.data = null;
         this.next = null;
     }
 
-    public Node(T data, Node<T> next){
+    public node(T data, node<T> next){
         this.data = data;
         this.next = next;
     }

@@ -6,30 +6,30 @@ package Array;
  * date:2019/5/13 21:49
  * description:
  */
-public class myArray {
+public class myArray_01 {
     private int[] data;
     private int size;
 
-    public myArray() {
+    public myArray_01() {
         this(10);
     }
 
-    public myArray(int capacity) {
+    public myArray_01(int capacity) {
         data = new int[capacity];
         size = 0;
     }
 
-    // 获取数组容量
+    // getCapacity
     public int getCapacity() {
         return data.length;
     }
 
-    // 获取数组中的元素个数
+    // getSize
     public int getSize() {
         return size;
     }
 
-    // 返回数组是否为空
+    // isEmpty
     public boolean isEmpty() {
         return size == 0;
     }
@@ -49,7 +49,7 @@ public class myArray {
         return sb.toString();
     }
 
-    // 添加数组元素 by index
+    // add element by index
     public void add(int index, int e) {
         if (data.length == size) {
             throw new IllegalArgumentException("array is full");
@@ -68,17 +68,17 @@ public class myArray {
         size++;
     }
 
-    // 添加数组元素，by head
+    // add element by head
     public void addHead(int e) {
         add(0, e);
     }
 
-    // 添加数组元素，by last
+    // add element by last
     public void addLast(int e) {
         add(size, e);
     }
 
-    // 删除数组元素，by index
+    // delete element by index
     public void delete(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
@@ -91,7 +91,7 @@ public class myArray {
         size--;
     }
 
-    // 修改元素 by index
+    // set element by index
     public void set(int index, int e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
@@ -100,7 +100,7 @@ public class myArray {
         data[index] = e;
     }
 
-    // 查找元素 by index
+    // get element by index
     public int get(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
@@ -120,23 +120,15 @@ public class myArray {
         return false;
     }
 
+    // search index by element
+    public int searchIndex(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

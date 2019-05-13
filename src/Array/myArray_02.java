@@ -1,9 +1,5 @@
 package Array;
 
-import com.sun.glass.ui.View;
-
-import java.util.Objects;
-
 /**
  * author:HYPO
  * date:2019/5/13 23:11

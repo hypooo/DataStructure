@@ -1,6 +1,5 @@
 package Array;
 
-import java.util.Arrays;
 
 /**
  * author:HYPO
@@ -84,12 +83,41 @@ public class myArray {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
         }
-        //从index+1到size前移一位
-        for (int i = index + 1; i < size; i++) {
+        //从index+1到size-1前移一位
+        for (int i = index + 1; i <= size - 1; i++) {
             data[i - 1] = data[i];
         }
 
         size--;
+    }
+
+    // 修改元素 by index
+    public void set(int index, int e) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("index error");
+        }
+
+        data[index] = e;
+    }
+
+    // 查找元素 by index
+    public int get(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("index error");
+        }
+
+        return data[index];
+    }
+
+    // isContain
+    public boolean isContain(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

@@ -11,7 +11,12 @@ public class myArrayTest {
         m.addLast(11);
         m.addLast(22);
         m.addLast(33);
-        m.add(111,99);
+        m.add(3,44);
+//        m.delete(3);
+        m.set(0,55);
         System.out.println(m);
+        System.out.println(m.get(2));
+        System.out.println(m.isContain(88));
+
     }
 }

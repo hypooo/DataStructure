@@ -1,4 +1,4 @@
-package LinearList;
+package LinkedList;
 
 /**
  * @author:HYPO

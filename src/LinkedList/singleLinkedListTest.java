@@ -1,4 +1,4 @@
-package LinearList;
+package LinkedList;
 
 /**
  * @author:HYPO
@@ -9,8 +9,8 @@ public class singleLinkedListTest {
     public static void main(String[] args) {
         Integer[] values = {1,2,3,4,5};
         Integer[] values2 = {1,2,3,4,5};
-        singleLinkedList<Integer> list = new singleLinkedList<Integer>(values);
-        singleLinkedList<Integer> list2 = new singleLinkedList<Integer>(values2);
+        singleLinkedList<Integer> list = new singleLinkedList<>(values);
+        singleLinkedList<Integer> list2 = new singleLinkedList<>(values2);
 
 //        System.out.println(list.toString());
 //        System.out.println("单链表的长度为："+list.getSize());

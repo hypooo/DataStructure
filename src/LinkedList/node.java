@@ -1,9 +1,9 @@
-package LinearList;
+package LinkedList;
 
 /**
- * @author:HYPO
- * @date:2019/4/9 16:49
- * @description:
+ * author:HYPO
+ * date:2019/4/9 16:49
+ * description:
  */
 public class node<T> {
     public T data;
@@ -21,6 +21,6 @@ public class node<T> {
 
     @Override
     public String toString() {
-        return this.data.toString();
+        return data.toString();
     }
 }

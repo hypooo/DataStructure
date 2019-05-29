@@ -1,7 +1,5 @@
 package BinaryTree;
 
-import javax.swing.tree.TreeNode;
-
 /**
  * author:HYPO
  * date:2019/5/26 15:25
@@ -67,6 +65,22 @@ public class BinaryTree<E> {
             }
         }
         return false;
+    }
+
+    /*查找并返回首次出现的关键字为key元素结点*/
+    public Node search(E e) {
+        return search(root, e);
+    }
+
+    private Node search(Node node, E e) {
+        if (node == null || e == null)
+            return null;
+        if (node.e.equals(e))
+            return node;
+        Node find = search(node.left, e);
+        if (find == null)
+            find = search(node.right, e);
+        return find;
     }
 
     /*先根次序遍历*/
@@ -159,8 +173,8 @@ public class BinaryTree<E> {
 
     }
 
-    private Node copy(Node node){
-        if (node == null){
+    private Node copy(Node node) {
+        if (node == null) {
             return null;
         }
         Node newnode = new Node(node.e);
@@ -198,28 +212,5 @@ public class BinaryTree<E> {
         System.out.println(tree1);
 
 
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

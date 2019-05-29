@@ -32,4 +32,5 @@ public class Node<E> {
     public String toString() {
         return this.e.toString();
     }
+
 }

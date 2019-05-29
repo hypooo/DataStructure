@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import javax.swing.tree.TreeNode;
+
 /**
  * author:HYPO
  * date:2019/5/26 15:25
@@ -124,6 +126,19 @@ public class BinaryTree<E> {
         return size(node.left) + size(node.right) + 1;
     }
 
+    @Override
+    public String toString() {
+        return toString(root);
+    }
+
+    private String toString(Node node) {
+        if (node == null) {
+            return "^";
+        }
+
+        return node.e.toString() + toString(node.left) + toString(node.right);
+    }
+
     /*获取二叉树的高度*/
     public int height() {
         return height(root);
@@ -137,35 +152,25 @@ public class BinaryTree<E> {
 
     }
 
-    /*先根次序遍历查找首个关键字为key结点*/
-    public Node search(E e) {
-        return search(root,e);
+    /*深拷贝构造方法*/
+    public BinaryTree(BinaryTree tree) {
+//        root = tree.root;
+        root = copy(tree.root);
+
     }
 
-    private Node search(Node node,E e) {
-
-        if (e.equals(node.e)) {
-            return node;
+    private Node copy(Node node){
+        if (node == null){
+            return null;
         }
+        Node newnode = new Node(node.e);
 
-         search(node.left,e);
-         search(node.right,e);
+        newnode.left = copy(node.left);
+        newnode.right = copy(node.right);
 
-        return null;
+        return newnode;
     }
 
-    @Override
-    public String toString() {
-        return toString(root);
-    }
-
-    private String toString(Node node) {
-        if (node == null) {
-            return "^";
-        }
-
-        return node.e.toString() + toString(node.left) + toString(node.right);
-    }
 
     public static void main(String[] args) {
         BinaryTree<String> tree = new BinaryTree<String>();
@@ -186,7 +191,14 @@ public class BinaryTree<E> {
         System.out.println("结点数：" + tree.size());
         System.out.println(tree);
 
-        System.out.println(tree.search("C").toString());
+        BinaryTree<String> tree1 = new BinaryTree<String>(tree);
+        System.out.println(tree1);
+        tree.insert("Z");
+        System.out.println(tree);
+        System.out.println(tree1);
+
+
+
     }
 }
 

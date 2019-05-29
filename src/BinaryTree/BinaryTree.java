@@ -6,20 +6,7 @@ package BinaryTree;
  * description:二叉树
  */
 public class BinaryTree<E> {
-    private class Node {
-        public E e;
-        public Node left, right;
 
-        public Node(E e, Node left, Node right) {
-            this.e = e;
-            this.left = left;
-            this.right = right;
-        }
-
-        public Node(E e) {
-            this(e, null, null);
-        }
-    }
 
     public Node root;
     public int size;
@@ -63,17 +50,66 @@ public class BinaryTree<E> {
         root = null;
     }
 
+    /*判断两个二叉树是否相等*/
+    public static boolean isSameTree(Node node1, Node node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        } else if (node1 == null || node2 == null) {
+            return false;
+        }
+        if (node1 != null && node2 != null) {
+            if (!node1.e.equals(node2.e)) {
+                return false;
+            } else {
+                return isSameTree(node1.left, node2.left) && isSameTree(node1.right, node2.right);
+            }
+        }
+        return false;
+    }
+
     /*先根次序遍历*/
     public void preorder() {
+        System.out.print("先序遍历：");
         preorder(root);
+        System.out.println();
     }
 
     private void preorder(Node node) {
         if (node == null)
             return;
-        System.out.println(node.e);
+        System.out.print(node.e);
         preorder(node.left);
         preorder(node.right);
+    }
+
+    /*中序遍历*/
+    public void inorder() {
+        System.out.print("中序遍历：");
+        inorder(root);
+        System.out.println();
+    }
+
+    private void inorder(Node node) {
+        if (node == null)
+            return;
+        inorder(node.left);
+        System.out.print(node.e);
+        inorder(node.right);
+    }
+
+    /*后序遍历*/
+    public void postorder() {
+        System.out.print("后序遍历：");
+        postorder(root);
+        System.out.println();
+    }
+
+    private void postorder(Node node) {
+        if (node == null)
+            return;
+        postorder(node.left);
+        postorder(node.right);
+        System.out.print(node.e);
     }
 
     /*获取二叉树的结点数*/
@@ -101,16 +137,51 @@ public class BinaryTree<E> {
 
     }
 
-    public static void main(String[] args) {
-        BinaryTree<Integer> tree = new BinaryTree<Integer>();
+    /*先根次序遍历查找首个关键字为key结点*/
+//    public Node search(E e) {
+//
+//    }
+    @Override
+    public String toString() {
+        return toString(root);
+    }
 
-        int[] values = {2, 3, 5, 6, 8};
-        for (int value : values) {
-            tree.insert(value);
+    private String toString(Node node) {
+        if (node == null) {
+            return "^";
         }
-//        tree.preorder();
-        System.out.println(tree.height());
-        System.out.println(tree.size());
+
+        return node.e.toString() + toString(node.left) + toString(node.right);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree<String> tree = new BinaryTree<String>();
+
+//        Node A = new Node("A");
+//        Node B = new Node();
+//        Node C = new Node();
+//        Node D = new Node();
+//        Node E = new Node();
+//        Node F = new Node();
+//        Node G = new Node();
+//        Node H = new Node();
+
+        Node A = tree.insert("A");
+        Node B = tree.insert(A, "B", true);
+        Node C = tree.insert(A, "C", false);
+        Node D = tree.insert(B, "D", true);
+        Node G = tree.insert(D, "G", false);
+        Node E = tree.insert(C, "E", true);
+        Node F = tree.insert(C, "F", false);
+        Node H = tree.insert(F, "H", true);
+
+
+        tree.preorder();
+        tree.inorder();
+        tree.postorder();
+        System.out.println("高度：" + tree.height());
+        System.out.println("结点数：" + tree.size());
+        System.out.println(tree);
     }
 }
 

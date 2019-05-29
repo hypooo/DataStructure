@@ -138,9 +138,22 @@ public class BinaryTree<E> {
     }
 
     /*先根次序遍历查找首个关键字为key结点*/
-//    public Node search(E e) {
-//
-//    }
+    public Node search(E e) {
+        return search(root,e);
+    }
+
+    private Node search(Node node,E e) {
+
+        if (e.equals(node.e)) {
+            return node;
+        }
+
+         search(node.left,e);
+         search(node.right,e);
+
+        return null;
+    }
+
     @Override
     public String toString() {
         return toString(root);
@@ -157,15 +170,6 @@ public class BinaryTree<E> {
     public static void main(String[] args) {
         BinaryTree<String> tree = new BinaryTree<String>();
 
-//        Node A = new Node("A");
-//        Node B = new Node();
-//        Node C = new Node();
-//        Node D = new Node();
-//        Node E = new Node();
-//        Node F = new Node();
-//        Node G = new Node();
-//        Node H = new Node();
-
         Node A = tree.insert("A");
         Node B = tree.insert(A, "B", true);
         Node C = tree.insert(A, "C", false);
@@ -175,13 +179,14 @@ public class BinaryTree<E> {
         Node F = tree.insert(C, "F", false);
         Node H = tree.insert(F, "H", true);
 
-
         tree.preorder();
         tree.inorder();
         tree.postorder();
         System.out.println("高度：" + tree.height());
         System.out.println("结点数：" + tree.size());
         System.out.println(tree);
+
+        System.out.println(tree.search("C").toString());
     }
 }
 

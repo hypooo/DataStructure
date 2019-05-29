@@ -24,6 +24,6 @@ public class Node<E> {
 
     @Override
     public String toString() {
-        return this.e.toString() + this.left.e.toString() + this.right.e.toString();
+        return this.e.toString() + "左节点" + this.left.e.toString() + "右节点" + this.right.e.toString();
     }
 }

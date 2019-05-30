@@ -8,9 +8,12 @@ package LinkedList;
 public class singleLinkedListTest {
     public static void main(String[] args) {
         Integer[] values = {1,2,3,4,5};
-        Integer[] values2 = {1,2,3,4,5};
+        Integer[] values2 = {1,2};
         singleLinkedList<Integer> list = new singleLinkedList<>(values);
         singleLinkedList<Integer> list2 = new singleLinkedList<>(values2);
+
+        System.out.println(list.difference(list2));
+
 
 //        System.out.println(list.toString());
 //        System.out.println("单链表的长度为："+list.getSize());
@@ -30,7 +33,7 @@ public class singleLinkedListTest {
 //        System.out.println(list.getDifference(list2));
 //        System.out.println(list.getTheSame(list2));
 
-        System.out.println(list.isEquals(list2));
+//        System.out.println(list.isEquals(list2));
 
     }
 }

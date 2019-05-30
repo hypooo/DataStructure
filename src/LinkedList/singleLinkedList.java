@@ -102,8 +102,7 @@ public class singleLinkedList<T> {
 
     /*返回单链表this除去与list中相同节点后的链表*/
     public String difference(singleLinkedList<T> list) {
-        StringBuffer sb = new StringBuffer();
-
+        StringBuffer res = new StringBuffer();
         node<T> p = this.head.next;
 
         while (p != null) {
@@ -113,28 +112,28 @@ public class singleLinkedList<T> {
                 if (p.data != q.data) {
                     i++;
                     if (i == list.getSize()) {
-                        sb.append(p.toString());
-                        sb.append(" ");
+                        res.append(p.toString());
+                        res.append(" ");
                     }
                 }
                 q = q.next;
             }
             p = p.next;
         }
-        return sb.toString();
+        return res.toString();
     }
 
     /*返回两个单链表所有不同的元素*/
     public String getDifference(singleLinkedList<T> list) {
-        StringBuffer sb = new StringBuffer("所有不同的元素为：");
-        sb.append(this.difference(list));
-        sb.append(list.difference(this));
-        return sb.toString();
+        StringBuffer res = new StringBuffer("所有不同的元素为：");
+        res.append(this.difference(list));
+        res.append(list.difference(this));
+        return res.toString();
     }
 
     /*返回两个单链表相同的元素*/
     public String getTheSame(singleLinkedList<T> list) {
-        StringBuffer sb = new StringBuffer("相同部分为：");
+        StringBuffer res = new StringBuffer("相同部分为：");
 
         node<T> p = this.head.next;
 
@@ -142,14 +141,14 @@ public class singleLinkedList<T> {
             node<T> q = list.head.next;
             while (q != null) {
                 if (p.data == q.data) {
-                    sb.append(p.toString());
-                    sb.append(" ");
+                    res.append(p.toString());
+                    res.append(" ");
                 }
                 q = q.next;
             }
             p = p.next;
         }
-        return sb.toString();
+        return res.toString();
     }
 
     /*比较两个单链表是否相等*/

@@ -1,7 +1,5 @@
 package BinaryTree;
 
-import LinkedList.node;
-
 /**
  * author:HYPO
  * date:2019/5/29 11:08

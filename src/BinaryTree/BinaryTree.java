@@ -51,7 +51,11 @@ public class BinaryTree<E> {
     }
 
     /*判断两个二叉树是否相等*/
-    public static boolean isSameTree(Node node1, Node node2) {
+    public static boolean isSameTree(BinaryTree t1, BinaryTree t2) {
+        return isSameTree(t1.root, t2.root);
+    }
+
+    private static boolean isSameTree(Node node1, Node node2) {
         if (node1 == null && node2 == null) {
             return true;
         } else if (node1 == null || node2 == null) {
@@ -168,9 +172,7 @@ public class BinaryTree<E> {
 
     /*深拷贝构造方法*/
     public BinaryTree(BinaryTree tree) {
-//        root = tree.root;
         root = copy(tree.root);
-
     }
 
     private Node copy(Node node) {
@@ -210,7 +212,5 @@ public class BinaryTree<E> {
         tree.insert("Z");
         System.out.println(tree);
         System.out.println(tree1);
-
-
     }
 }

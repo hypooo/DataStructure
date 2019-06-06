@@ -9,10 +9,11 @@ public class singleLinkedListTest {
     public static void main(String[] args) {
         Integer[] values = {1,2,3,4,5};
         Integer[] values2 = {1,2};
-        singleLinkedList<Integer> list = new singleLinkedList<>(values);
+        singleLinkedList<Integer> list1 = new singleLinkedList<>(values);
         singleLinkedList<Integer> list2 = new singleLinkedList<>(values2);
 
-        System.out.println(list.difference(list2));
+        System.out.println(list1.difference(list2));
+        System.out.println(list1.getTheSame(list2));
 
 
 //        System.out.println(list.toString());

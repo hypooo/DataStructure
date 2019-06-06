@@ -102,7 +102,7 @@ public class singleLinkedList<T> {
 
     /*返回单链表this除去与list中相同节点后的链表*/
     public String difference(singleLinkedList<T> list) {
-        StringBuffer res = new StringBuffer();
+        StringBuffer res = new StringBuffer("不同部分为：");
         node<T> p = this.head.next;
 
         while (p != null) {

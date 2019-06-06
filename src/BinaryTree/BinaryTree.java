@@ -172,6 +172,7 @@ public class BinaryTree<E> {
 
     /*深拷贝构造方法*/
     public BinaryTree(BinaryTree tree) {
+//        root = tree.root;
         root = copy(tree.root);
     }
 
@@ -208,9 +209,6 @@ public class BinaryTree<E> {
         System.out.println(tree);
 
         BinaryTree<String> tree1 = new BinaryTree<String>(tree);
-        System.out.println(tree1);
-        tree.insert("Z");
-        System.out.println(tree);
         System.out.println(tree1);
     }
 }
